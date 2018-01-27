@@ -440,15 +440,15 @@ module EventMachine
         [ssl_version].flatten.each do |p|
           case p.to_s.downcase
           when 'sslv2'
-            protocols_bitmask |= EventMachine::EM_PROTO_SSLv2
+            protocols_bitmask |= 2
           when 'sslv3'
-            protocols_bitmask |= EventMachine::EM_PROTO_SSLv3
+            protocols_bitmask |= 4
           when 'tlsv1'
-            protocols_bitmask |= EventMachine::EM_PROTO_TLSv1
+            protocols_bitmask |= 8
           when 'tlsv1_1'
-            protocols_bitmask |= EventMachine::EM_PROTO_TLSv1_1
+            protocols_bitmask |= 16
           when 'tlsv1_2'
-            protocols_bitmask |= EventMachine::EM_PROTO_TLSv1_2
+            protocols_bitmask |= 32
           else
             raise("Unrecognized SSL/TLS Protocol: #{p}")
           end
